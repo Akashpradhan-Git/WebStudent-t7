@@ -1,0 +1,169 @@
+.contact {
+  margin: 8rem 0;
+  min-height: 95vh;
+  background-image: url(/images/contact-background.jpg);
+  @include respond(phone) {
+    background-image: url(/images/contact-background-small.jpg);
+  }
+  background-size: cover;
+  font-family: $font-sans;
+  position: relative;
+
+  .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 60%;
+    height: 100%;
+    background: rgba($color-white, 0.8);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    padding: 10rem 6rem;
+
+    @include respond(tab-port) {
+      width: 80%;
+    }
+    @include respond(phone) {
+      width: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    & > h2 {
+      font-family: $font-display;
+      text-align: center;
+      font-size: 6rem;
+      font-weight: 400;
+      opacity: 1;
+      text-transform: uppercase;
+      margin-bottom: 5rem;
+
+      &::before {
+        content: "";
+        display: none;
+        width: 100%;
+        height: 35%;
+        background: linear-gradient(
+          to right bottom,
+          $color-primary,
+          $color-primary-dark
+        );
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        @include respond(phone) {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.form-control {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  label,
+  input,
+  textarea {
+    display: block;
+  }
+  label {
+    font-size: 1.6rem;
+    color: $color-secondary;
+    margin-bottom: 0.6rem;
+  }
+  input,
+  textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.5rem 3rem;
+    border: none;
+    resize: none;
+    outline: none;
+    border-radius: $border-radius;
+    box-shadow: 0 0 5px rgba($color-black, 0.1),
+      0 0.4rem 3rem rgba($color-black, 0.1);
+    transition: box-shadow 0.3s ease;
+
+    @include respond(tab-port) {
+      max-width: 350px;
+    }
+
+    &::placeholder {
+      font-size: 1.4rem;
+      font-family: $font-sans;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 5px rgba($color-black, 0.3),
+        0 0.4rem 3rem rgba($color-black, 0.2);
+    }
+  }
+
+  &.checkbox {
+    input {
+      display: none;
+    }
+    input:checked + label::after {
+      display: inline-block;
+    }
+    label {
+      width: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 4rem;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        box-shadow: 0 0 4px rgba($color-black, 0.25),
+          0 0 3rem rgba($color-black, 0.1);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      &::after {
+        content: "";
+        display: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        background-image: url(/images/check.svg);
+        background-size: cover;
+        position: absolute;
+        top: 2.5px;
+        left: 2.5px;
+        z-index: 5;
+      }
+    }
+  }
+  .btn-submit {
+    padding: 1.5rem 4rem;
+    font-size: inherit;
+    font-family: $font-sans;
+    border: none;
+    outline: none;
+    background-color: $color-primary;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $color-primary-dark;
+    }
+  }
+}

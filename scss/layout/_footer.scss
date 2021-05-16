@@ -1,0 +1,125 @@
+img {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  background: $color-grey-dark-1;
+  font-family: $font-sans;
+  padding: 12rem;
+
+  @include respond(tab-land) {
+    padding: 10rem;
+  }
+  @include respond(tab-port) {
+    padding: 8rem;
+  }
+  @include respond(phone) {
+    padding: 3.5rem;
+  }
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__top {
+    width: 50%;
+    margin-bottom: 7rem;
+
+    @include respond(tab-land) {
+      width: 60%;
+    }
+    @include respond(tab-port) {
+      width: 70%;
+    }
+    @include respond(phone) {
+      width: 100%;
+    }
+    @include respond(big-desktop) {
+      max-width: 114rem;
+    }
+  }
+  &__logo {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    border-radius: $border-radius;
+
+    @include respond(tab-land) {
+      width: 60%;
+    }
+    @include respond(tab-port) {
+      width: 70%;
+    }
+    @include respond(phone) {
+      width: 80%;
+    }
+  }
+  &__copyright {
+    text-align: center;
+    color: $color-grey-light-3;
+    margin-top: 2rem;
+  }
+
+  &__bottom {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+
+    @include respond(tab-port) {
+      flex-wrap: wrap;
+    }
+    @include respond(big-desktop) {
+      max-width: 114rem;
+    }
+  }
+  &__heading {
+    color: $color-grey-light-1;
+    font-family: $font-sans;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  &__container {
+    width: 100%;
+    @include respond(tab-port) {
+      width: 50%;
+      margin-bottom: 4rem;
+    }
+    @include respond(phone) {
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+  }
+  &__list {
+    list-style: none;
+    width: 100%;
+  }
+  &__item {
+    display: block;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__link {
+    color: $color-grey-light-2;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: inherit;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s ease;
+    width: auto;
+    display: inline-block;
+
+    & img {
+      width: 1.5rem;
+      margin-right: 1.2rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-grey-light-3;
+      border-bottom: 2px solid $color-primary;
+    }
+  }
+}

@@ -1,0 +1,137 @@
+/* ------------client style--------------- */
+:root {
+  --primary: #55efc4;
+  --secon: #13c391;
+}
+.client {
+  z-index: -10;
+  min-height: 80vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image: url(/images/bgclint.svg);
+  background-repeat: no-repeat;
+}
+.client > h2 {
+  font-family: $font-display;
+  text-align: center;
+  font-size: 6rem;
+  padding-top: 2rem;
+  font-weight: 400;
+}
+.review .cards {
+  padding: 5rem 0;
+  display: flex;
+  list-style: none;
+  font-family: $font-sans;
+}
+.review .swiper-slide {
+  width: 60%;
+  padding: 4rem 2rem;
+}
+
+.card-item {
+  background: white;
+  margin: 1rem;
+  transform: skewX(-15deg);
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+}
+
+.card-item .card {
+  background: transparent;
+  transform: skewX(15deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card .image {
+  padding: 4rem;
+  margin: 1rem;
+  margin-left: 2rem;
+  box-shadow: 0 0 2rem rgba($color-black, 0.1);
+  border-radius: 50%;
+}
+.card .image img {
+  width: 100px;
+}
+.card .text {
+  margin-left: 1rem;
+
+  & > h2 {
+    font-family: $font-display;
+    font-weight: 400;
+  }
+}
+.card .text p {
+  font-family: "Poppins", sans-serif;
+  margin: 1rem 1rem 0 0;
+  font-size: 1.6rem;
+
+  span {
+    font-size: 3rem;
+    color: $color-secondary;
+  }
+}
+
+@include respond(tab-port) {
+  .client {
+    background-image: none;
+  }
+  .review .cards {
+    margin-left: 1rem;
+  }
+  .review .swiper-slide {
+    width: 90%;
+    margin-left: 10px;
+    margin-right: 0px;
+    background: white;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.2);
+    max-width: 320px;
+  }
+  .card-item {
+    position: relative;
+    margin: 1rem;
+    transform: skew(0deg);
+    overflow: hidden;
+    border-radius: $border-radius;
+  }
+  .card-item::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(
+      248.33deg,
+      rgba($color-primary, 0.8) 0%,
+      rgba($color-primary-dark, 0.8) 101.66%
+    );
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  }
+  .card-item .card {
+    transform: skew(0deg);
+    display: flex;
+    flex-direction: column;
+  }
+  .card .image {
+    box-shadow: none;
+    img {
+      position: relative;
+      top: -2rem;
+      width: 140px;
+      height: 140px;
+    }
+  }
+  .card .text {
+    text-align: center;
+    padding: 1rem;
+
+    h2 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+  }
+}

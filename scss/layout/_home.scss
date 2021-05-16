@@ -1,0 +1,96 @@
+.home {
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 9rem 10rem 9rem;
+
+  @include respond(phone) {
+    height: auto;
+  }
+
+  .content {
+    flex: 1 1;
+    .title {
+      font-family: $font-display;
+      font-size: 7.2rem;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+    }
+    .sub-title {
+      font-family: $font-sans;
+      font-size: 3.2rem;
+      margin-bottom: 4rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: $font-sans;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.9rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &--about {
+        background-color: $color-primary;
+        color: black;
+
+        &:hover {
+          background: $color-primary-dark;
+        }
+      }
+      &--contact {
+        background-color: $color-secondary;
+        color: #fff;
+        margin-left: 2rem;
+
+        &:hover {
+          background: darken($color-secondary, 20%);
+        }
+      }
+    }
+  }
+
+  .image {
+    flex: 1 1;
+    width: 100%;
+    img {
+      display: block;
+      margin-left: auto;
+      width: 80%;
+    }
+  }
+
+  @include respond(tab-port) {
+    .content {
+      .title {
+        font-size: 6rem;
+      }
+      .sub-title {
+        font-size: 3rem;
+      }
+    }
+  }
+  @include respond(phone) {
+    flex-direction: column;
+    padding: 2rem 4rem 4rem 4rem;
+
+    .content {
+      margin-bottom: 4rem;
+
+      .btn {
+        &--contact {
+          margin-left: 0;
+        }
+      }
+    }
+    .image img {
+      width: 100%;
+    }
+  }
+}
